@@ -17,5 +17,7 @@ public class WeatherForecastController : ControllerBase
     public object Get()
     {
         return "Events";
+        
+        //testing
     }
 }
