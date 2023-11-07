@@ -1,0 +1,7 @@
+{
+  "name": "EventMaster",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
