@@ -3,7 +3,7 @@
 
 Created By Team MRGL2023
 
-Alexander Moretto Stengaard
-Klavs Tranborg Eriksen
-Oliver Ager Jørgensen
-Jesper Svenningsen Møller
+Alexander Moretto Stengaard, 
+Klavs Tranborg Eriksen, 
+Oliver Ager Jørgensen, 
+Jesper Svenningsen Møller.
