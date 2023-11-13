@@ -113,7 +113,6 @@ BEGIN
         FROM inserted;
     END
 END
-
 GO
 CREATE PROCEDURE sp_GetRelations(@UserId INT)
 AS
