@@ -12,12 +12,4 @@ public class TicketController : ControllerBase
     {
         _logger = logger;
     }
-
-    [HttpGet]
-    [Route("/Api/Ticket/Dummy")]
-    public IActionResult dummy()
-    {
-        return Ok(new TicketModel());
-    }
-
 }

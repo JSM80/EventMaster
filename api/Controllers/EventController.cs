@@ -14,17 +14,38 @@ public class EventController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet]
-    [Route("/Api/Event/dummy")]
-    public IActionResult dummy()
+    [HttpPost]
+    [Route("/Api/Event/Create")]
+    public IActionResult Create([FromBody] EventModel model)
     {
-        return Ok(TimeZoneInfo.Local);
+        return Ok(model);
     }
 
-    [HttpPost]
-    [Route("/Api/Event/dummy")]
-    public IActionResult dummy([FromBody] EventModel eventModel)
-    {        
-        return Ok(eventModel);
+    [HttpGet]
+    [Route("/Api/Event")]
+    public IActionResult GetAll()
+    {
+        return Ok(new EventModel());
+    }
+
+    [HttpGet]
+    [Route("/Api/Event/{Id}")]
+    public IActionResult Get([FromRoute] int Id)
+    {
+        return Ok(new EventModel {  Id = Id });
+    }
+
+    [HttpPut]
+    [Route("/Api/Event/{Id}")]
+    public IActionResult Update([FromBody] EventModel model)
+    {
+        return Ok(model);
+    }
+
+    [HttpDelete]
+    [Route("/Api/Event/{Id}")]
+    public IActionResult Delete([FromRoute] int Id)
+    {
+        return Ok();
     }
 }

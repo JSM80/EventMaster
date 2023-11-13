@@ -12,18 +12,4 @@ public class UserController : ControllerBase
     {
         _logger = logger;
     }
-
-    [HttpGet]
-    [Route("/Api/User/Dummy")]
-    public IActionResult dummy()
-    {
-        return Ok(new UserModel());
-    }
-
-    [HttpPost]
-    [Route("/Api/User/Dummy")]
-    public IActionResult dummy([FromBody] UserModel userModel)
-    {
-        return Ok(userModel);
-    }
 }

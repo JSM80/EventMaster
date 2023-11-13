@@ -16,8 +16,8 @@ CREATE TABLE [dbo].[User] (
 [Id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 [FirstName] NVARCHAR(255) NOT NULL,
 [LastName] NVARCHAR(255) NOT NULL,
-[EMail] NVARCHAR(255) NOT NULL, 
-[PasswordHash] NVARCHAR NOT NULL,
+[EMail] VARCHAR(255) NOT NULL, 
+[PasswordHash] NVARCHAR(MAX) NOT NULL,
 [Address1] NVARCHAR(255) NOT NULL,
 [Address2] NVARCHAR(255) NOT NULL,
 [Zip] NVARCHAR(25) NOT NULL,
@@ -113,6 +113,7 @@ BEGIN
         FROM inserted;
     END
 END
+
 GO
 CREATE PROCEDURE sp_GetRelations(@UserId INT)
 AS
@@ -122,3 +123,6 @@ UNION
 SELECT [SecondaryUser] Relation from [dbo].[UserRelation] where [PrimaryUser] = @UserId and [Accepted] = 1
 GO
 
+CREATE INDEX IX_Event_Owner ON [dbo].[Event]([Owner]);
+CREATE INDEX IX_Ticket_UserId ON [dbo].[Ticket]([UserId]);
+CREATE INDEX IX_Ticket_EventId ON [dbo].[Ticket]([EventId]);
