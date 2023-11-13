@@ -1,11 +1,15 @@
 USE EventMaster
 GO
+
 DROP TABLE IF EXISTS [dbo].[UserRelation]
+
 DROP TABLE IF EXISTS [dbo].[Ticket]
 DROP TABLE IF EXISTS [dbo].[Event]
 DROP TABLE IF EXISTS [dbo].[User]
 DROP FUNCTION IF EXISTS [dbo].[fn_TicketsSold]
+
 DROP PROCEDURE IF EXISTS [dbo].[sp_GetRelations]
+
 GO
 
 CREATE TABLE [dbo].[User] (
@@ -54,12 +58,14 @@ CREATE TABLE [dbo].[Ticket](
 )
 GO
 
+
 CREATE TABLE [dbo].[UserRelation](
 [PrimaryUser] INT NOT NULL FOREIGN KEY REFERENCES [dbo].[User](Id),
 [SecondaryUser] INT NOT NULL FOREIGN KEY REFERENCES [dbo].[User](Id),
 [Accepted] BIT NOT NULL DEFAULT 0 -- Zero(False) means pending. Entry should be deleted on decline.
 )
 GO
+
 
 ALTER TABLE [dbo].[Ticket]
 ADD
@@ -80,6 +86,7 @@ ALTER TABLE [dbo].[Event]
 ADD 
 Sold as ([dbo].[fn_TicketsSold](id)),
 Available as ([MaximumTickets] - ([dbo].[fn_TicketsSold](id)))
+
 GO
 
 CREATE TRIGGER tr_PreventExceedMaximumTickets
@@ -115,3 +122,4 @@ SELECT
 UNION
 SELECT [SecondaryUser] Relation from [dbo].[UserRelation] where [PrimaryUser] = @UserId and [Accepted] = 1
 GO
+
