@@ -16,6 +16,5 @@ public class UpdateEventRequestDto
 
     // Nested class for address properties
     public AddressDto address { get; set; }
-
     public DateOnly date { get; set; }
 }

@@ -41,6 +41,17 @@ public class EventController : ControllerBase
         };
     }
     
+    [HttpPut]
+    [Route("/api/event/{eventId}")]
+    public ResponseDto Put([FromRoute]int eventId, [FromBody] UpdateEventRequestDto dto)
+    {
+        return new ResponseDto()
+        {
+            MessageToClient = "Successfully Update a event",
+            ResponseData = _eventService.UpdateEvent(dto.eventId, dto.eventName, dto.eventOrganiser, dto.description, 
+                dto.eventCardImgUrl, dto.time, dto.price, dto.ticketAmount, dto.address, dto.date)
+        };
+    }
     [HttpGet]
     [Route("/Api/Event/dummy")]
     public IActionResult dummy()

@@ -29,4 +29,9 @@ public class EventService
 
         return _eventRepository.CreateEvent(eventName, eventOrganiser, description, eventCardImgUrl, time, price, ticketAmount, address, date);
     }
+
+    public object? UpdateEvent(int dtoEventId, string dtoEventName, string dtoEventOrganiser, string dtoDescription, string dtoEventCardImgUrl, TimeOnly dtoTime, double dtoPrice, int dtoTicketAmount, AddressDto dtoAddress, DateOnly dtoDate)
+    {
+        throw new NotImplementedException();
+    }
 }
