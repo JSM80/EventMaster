@@ -4,7 +4,8 @@ import {LoginPageComponent} from "./login-page/login-page.component";
 
 const routes: Routes = [
   {
-    path: '', component: LoginPageComponent    //loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    path: '', component: LoginPageComponent
+    //loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   }
 ];
 @NgModule({

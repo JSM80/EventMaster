@@ -17,7 +17,7 @@ ion-content {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  --background: linear-gradient(to left, #E76F51, #264653);
+  --background: linear-gradient(0.25turn,#1b1b1b , #808080, #ffa500);
 }
 
 ion-card {
@@ -32,13 +32,13 @@ ion-card {
   padding: 20px;
 }
 ion-button {
-  --background: #264653;
+  --background: #1b1b1b;
   font-size: large;
   width: 100%;
   margin-top: 40px;
 }
 ion-button:hover {
-  --background: #E76F51;
+  --background: #ffa31a;
   cursor: pointer;
 }
 .ion-text-center {
