@@ -12,6 +12,10 @@ jobs:
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x'
-      - run: dotnet build
-      - run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
+      
+      - run: dotnet build --project PlaywrightTests
+        working-directory: PlaywrightTests
+        
+      - run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps --project PlaywrightTests
+        working-directory: PlaywrightTests
       - run: dotnet test
