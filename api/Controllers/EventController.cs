@@ -41,7 +41,7 @@ public class EventController : ControllerBase
         };
     }
     
-    [HttpPut]
+/*    [HttpPut]
     [Route("/api/event/{eventId}")]
     public ResponseDto Put([FromRoute]int eventId, [FromBody] UpdateEventRequestDto dto)
     {
@@ -57,8 +57,8 @@ public class EventController : ControllerBase
     public IActionResult dummy()
     {
         return Ok(TimeZoneInfo.Local);
-    }
-
+   }
+*/ 
     [HttpPost]
     [Route("/Api/Event/dummy")]
     public IActionResult dummy([FromBody] EventModel eventModel)
