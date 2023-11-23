@@ -13,9 +13,6 @@ jobs:
         with:
           dotnet-version: '8.0.x'
       
-      - run: dotnet build --project PlaywrightTests
-        working-directory: PlaywrightTests
+      - run: cd playwrighttests && dotnet build && pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
         
-      - run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps --project PlaywrightTests
-        working-directory: PlaywrightTests
       - run: dotnet test
