@@ -1,0 +1,34 @@
+ion-header {
+  background-color: #003554;
+  min-height: 90px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 2%;
+  margin-right: 2%;
+  max-width: 300px;
+  min-width: 200px;
+}
+
+.flex-icon {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  align-items: center;
+  padding: 10px;
+}
+.header-icon {
+  cursor: pointer;
+  &:hover {
+    background-color: red;
+  }
+}
+ ion-searchbar {
+   min-width: 300px;
+   max-width: 50%;
+ }

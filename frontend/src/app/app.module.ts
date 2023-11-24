@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import {LoginPageComponent} from "./login-page/login-page.component";
 import {HttpClientModule} from "@angular/common/http";
 import {SignupPageComponent} from "./signup-page/signup-page.component";
+import {HomePageModule} from "./home/home.module";
+import {HomePageRoutingModule} from "./home/home-routing.module";
 
 @NgModule({
   declarations: [AppComponent, LoginPageComponent, SignupPageComponent],
