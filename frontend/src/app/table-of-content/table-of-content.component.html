@@ -1,5 +1,3 @@
-<!-- your-page.page.html -->
-
 <ion-content>
   <ion-grid>
     <ion-col>
@@ -12,32 +10,42 @@
       <ion-row>
         <ion-label>Events near you</ion-label>
       </ion-row>
-      <ion-row class="near-you">
-        <ion-card *ngFor="let event of state.events">
-          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-          <ion-card-header>
-            <ion-card-title>{{ event.eventTitle }}</ion-card-title>
-            <ion-card-subtitle>Event date: {{ event.eventData | date: 'short' }}</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            Address: {{ event.eventAddress }}
-          </ion-card-content>
-        </ion-card>
+      <ion-row>
+        <div class="scrolling-wrapper snaps-inline">
+          <div class="card" *ngFor="let event of state.events">
+            <ion-card>
+              <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+              <ion-card-header>
+                <ion-card-title>{{ event.eventTitle }}</ion-card-title>
+                <ion-card-subtitle>Event date: {{ event.eventData | date: 'short' }}</ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                Address: {{ event.eventAddress }}
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </div>
       </ion-row>
       <ion-row>
         <ion-label>Newest Events</ion-label>
       </ion-row>
-      <ion-row class="near-you">
-        <ion-card *ngFor="let event of state.events">
-          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-          <ion-card-header>
-            <ion-card-title>{{ event.eventTitle }}</ion-card-title>
-            <ion-card-subtitle>Event date: {{ event.eventData | date: 'short' }}</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            Address: {{ event.eventAddress }}
-          </ion-card-content>
-        </ion-card>
+      <ion-row>
+        <a href="#">
+          <div class="scrolling-wrapper snaps-inline">
+            <div class="card" *ngFor="let event of state.events">
+              <ion-card>
+                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                <ion-card-header>
+                  <ion-card-title>{{ event.eventTitle }}</ion-card-title>
+                  <ion-card-subtitle>Event date: {{ event.eventData | date: 'short' }}</ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content>
+                  Address: {{ event.eventAddress }}
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </div>
+        </a>
       </ion-row>
     </ion-col>
   </ion-grid>

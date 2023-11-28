@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {LoginPageComponent} from "./login-page/login-page.component";
 import {SignupPageComponent} from "./signup-page/signup-page.component";
-import {TableOfContentComponent} from "./table-of-content/table-of-content.component";
 import {HomePage} from "./home/home.page";
+import {CarouselComponent} from "./carousel/carousel.component";
 
 const routes: Routes = [
+  { path: 'eve', component: CarouselComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'signup', component: SignupPageComponent },
   { path: 'home', component: HomePage},
@@ -14,6 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
