@@ -12,11 +12,9 @@ public class UserService
         _repository = repository;
     }
 
-    public IEnumerable<User> GetAll()
+    public IEnumerable<Users> GetAll()
     {
         return _repository.GetAll();
     }
-    
-
 
 }
