@@ -10,10 +10,11 @@ import {LoginPageComponent} from "./login-page/login-page.component";
 import {HttpClientModule} from "@angular/common/http";
 import {SignupPageComponent} from "./signup-page/signup-page.component";
 import {HomePageModule} from "./home/home.module";
+import {UserInfoComponent} from "./user-info/user-info.component"
 import {HomePageRoutingModule} from "./home/home-routing.module";
 
 @NgModule({
-  declarations: [AppComponent, LoginPageComponent, SignupPageComponent],
+  declarations: [AppComponent, LoginPageComponent, SignupPageComponent, UserInfoComponent],
   imports: [BrowserModule, IonicModule.forRoot({mode: "ios"}), AppRoutingModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

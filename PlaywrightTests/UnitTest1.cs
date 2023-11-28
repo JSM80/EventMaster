@@ -59,4 +59,31 @@ public class Tests : PageTest
         await Page.GetByPlaceholder("What needs to be done?").PressAsync("Enter");
         await Expect(Page.Locator("li").Filter(new() { HasText = todoString })).ToBeVisibleAsync();
     }
+    
+    
+    [Test]  
+        public async Task MyTest()
+        {
+            await Page.GotoAsync("http://localhost:4200/login");
+
+            await Page.GetByLabel("Username").ClickAsync();
+
+            await Page.GetByLabel("Username").FillAsync("test");
+
+            await Page.GetByLabel("Password").ClickAsync();
+
+            await Page.GetByLabel("Password").FillAsync("test");
+
+            await Page.GetByRole(AriaRole.Link, new() { Name = "Log In" }).ClickAsync();
+
+            await Page.GetByRole(AriaRole.Button, new() { Name = "Concert" }).ClickAsync();
+
+            await Page.GetByRole(AriaRole.Button, new() { Name = "Local event" }).ClickAsync();
+
+            await Page.GetByPlaceholder("Search").ClickAsync();
+
+            await Page.GetByPlaceholder("Search").FillAsync("test");
+            
+        }
+    
 }
