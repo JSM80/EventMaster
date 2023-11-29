@@ -36,33 +36,22 @@ public class EventController : ControllerBase
         return new ResponseDto()
         {
             MessageToClient = "Successfully created a event",
-            ResponseData = _eventService.CreateEvent(dto.eventName, dto.eventOrganiser, dto.description, 
-                dto.eventCardImgUrl, dto.time, dto.price, dto.ticketAmount, dto.address, dto.date)
+            ResponseData = _eventService.CreateEvent(dto.Title, dto.Description, dto.OwnerId, dto.eventStatus, 
+                dto.eventCardImgUrl, dto.MaximumTickets, dto.Address1, dto.Address2, dto.Zip, dto.City, dto.Country, 
+                dto.CreatedAtUTC, dto.StartUTC, dto.EndUTC)
         };
     }
     
-/*    [HttpPut]
+    [HttpPut]
     [Route("/api/event/{eventId}")]
     public ResponseDto Put([FromRoute]int eventId, [FromBody] UpdateEventRequestDto dto)
     {
         return new ResponseDto()
         {
             MessageToClient = "Successfully Update a event",
-            ResponseData = _eventService.UpdateEvent(dto.eventId, dto.eventName, dto.eventOrganiser, dto.description, 
-                dto.eventCardImgUrl, dto.time, dto.price, dto.ticketAmount, dto.address, dto.date)
+            ResponseData = _eventService.UpdateEvent(dto.Title, dto.Description, dto.OwnerId, dto.EventStatus, 
+                dto.eventCardImgUrl, dto.MaximumTickets, dto.Address1, dto.Address2, dto.Zip, dto.City, dto.Country, 
+                dto.CreatedAtUTC, dto.StartUTC, dto.EndUTC)
         };
-    }
-    [HttpGet]
-    [Route("/Api/Event/dummy")]
-    public IActionResult dummy()
-    {
-        return Ok(TimeZoneInfo.Local);
-   }
-*/ 
-    [HttpPost]
-    [Route("/Api/Event/dummy")]
-    public IActionResult dummy([FromBody] EventModel eventModel)
-    {        
-        return Ok(eventModel);
     }
 }

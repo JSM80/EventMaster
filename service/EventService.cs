@@ -19,18 +19,18 @@ public class EventService
         return _eventRepository.GetEventForFeed();
     }
 
-    public Event CreateEvent(string eventName, string eventOrganiser, string description, string eventCardImgUrl, TimeOnly time, double price, int ticketAmount, object address, DateOnly date)
+    public Event CreateEvent(string Title, string description, int OwnerId, bool eventStatus, string eventCardImgUrl, int MaximumTickets, string Address1, string Address2, int zip, string city, string country, DateTime CreatedAtUTC, DateTime StartUTC, DateTime EndUTC)
     {
-        var doesEventExist = _eventRepository.DoesEventWithNameExist(eventName);
+        var doesEventExist = _eventRepository.DoesEventWithNameExist(Title);
         if (!doesEventExist)
         {
-            throw new ValidationException("A event already exists with title" + eventName);
+            throw new ValidationException("A event already exists with title" + Title);
         }
 
-        return _eventRepository.CreateEvent(eventName, eventOrganiser, description, eventCardImgUrl, time, price, ticketAmount, address, date);
+        return _eventRepository.CreateEvent(Title, description, OwnerId, eventStatus, eventCardImgUrl, MaximumTickets, Address1, Address2, zip, city, country, CreatedAtUTC, StartUTC, EndUTC);
     }
 
-    public object? UpdateEvent(int dtoEventId, string dtoEventName, string dtoEventOrganiser, string dtoDescription, string dtoEventCardImgUrl, TimeOnly dtoTime, double dtoPrice, int dtoTicketAmount, AddressDto dtoAddress, DateOnly dtoDate)
+    public object? UpdateEvent(string Title, string description, int OwnerId, bool eventStatus, string eventCardImgUrl, int MaximumTickets, string Address1, string Address2, int zip, string city, string country, DateTime CreatedAtUTC, DateTime StartUTC, DateTime EndUTC)
     {
         throw new NotImplementedException();
     }
