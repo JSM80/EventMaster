@@ -12,9 +12,8 @@ public class UserService
         _repository = repository;
     }
 
-    public IEnumerable<Users> GetAll()
+    public UserModel GetById(int id)
     {
-        return _repository.GetAll();
+        return _repository.GetById(id);
     }
-
 }
