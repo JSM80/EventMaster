@@ -19,19 +19,30 @@ public class EventService
         return _eventRepository.GetEventForFeed();
     }
 
-    public Event CreateEvent(string Title, string description, int OwnerId, bool eventStatus, string eventCardImgUrl, int MaximumTickets, string Address1, string Address2, int zip, string city, string country, DateTime CreatedAtUTC, DateTime StartUTC, DateTime EndUTC)
+    public Event CreateEvent(string title, string description, int ownerId, bool eventStatus, string eventCardImgUrl,
+        int maximumTickets, string address1, string address2, int zip, string city, string country, DateTime createdAtUtc, DateTime startUtc, DateTime endUtc)
     {
-        var doesEventExist = _eventRepository.DoesEventWithNameExist(Title);
+        var doesEventExist = _eventRepository.DoesEventWithNameExist(title);
         if (!doesEventExist)
         {
-            throw new ValidationException("A event already exists with title" + Title);
+            throw new ValidationException("A event already exists with title" + title);
         }
 
-        return _eventRepository.CreateEvent(Title, description, OwnerId, eventStatus, eventCardImgUrl, MaximumTickets, Address1, Address2, zip, city, country, CreatedAtUTC, StartUTC, EndUTC);
+        return _eventRepository.CreateEvent(title, description, ownerId, eventStatus, eventCardImgUrl, maximumTickets, address1, address2, zip, city, country, createdAtUtc, startUtc, endUtc);
     }
 
-    public object? UpdateEvent(string Title, string description, int OwnerId, bool eventStatus, string eventCardImgUrl, int MaximumTickets, string Address1, string Address2, int zip, string city, string country, DateTime CreatedAtUTC, DateTime StartUTC, DateTime EndUTC)
+    public Event UpdateEvent(int id, string title, string description, int ownerId, bool eventStatus, string eventCardImgUrl,
+        int maximumTickets, string address1, string address2, int zip, string city, string country, DateTime createdAtUtc, DateTime startUtc, DateTime endUtc)
     {
-        throw new NotImplementedException();
+        return _eventRepository.UpdateEvent(id, title, description, ownerId, eventStatus, eventCardImgUrl, maximumTickets, address1, address2, zip, city, country, createdAtUtc, startUtc, endUtc);
+    }
+
+    public void DeleteEvent(int eventId)
+    {
+        var result = _eventRepository.DeleteEvent(eventId);
+        if (!result)
+        {
+            throw new Exception("Could not insert event");
+        }
     }
 }

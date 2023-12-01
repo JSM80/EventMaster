@@ -11,7 +11,7 @@ public class CreateEventRequestDto
     public string Description { get; set; }
     public int OwnerId { get; set; }
     [DefaultValue(false)]
-    public bool eventStatus { get; set; }
+    public bool EventStatus { get; set; }
     public string eventCardImgUrl { get; set; }
     public int MaximumTickets { get; set; }
     public string Address1 { get; set; }
